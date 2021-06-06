@@ -24,3 +24,8 @@ const port = 8000;
 const server = app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
+//respond with object when get request made
+app.get('/data', function (req, res) {
+    res.send(projectData);
+  })
