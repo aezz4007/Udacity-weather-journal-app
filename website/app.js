@@ -13,7 +13,17 @@ document.getElementById('generate').addEventListener('click', performAction);
 
 function performAction(e){
     const newZip = document.getElementById('zip').value;
-    getWeather(baseURL, newZip, apiKey);
+    if (!newZip) {
+        alert('Please enter your zip code');
+    } else if (isNaN(newZip)){
+        alert('Please enter a valid zip code');
+    } else if (newZip.length!=5) {
+        alert('Please enter a five digit zip code');
+    }
+    else {
+        getWeather(baseURL, newZip, apiKey);
+    }
+    
 }
 
 //Get weather from API
@@ -23,7 +33,6 @@ const getWeather = async (baseURL, newZip, apiKey) => {
     try {
       const weatherData = await res.json();
       console.log(weatherData);
-      console.log(projectData);
       return weatherData;
     } catch (error) {
       console.log('error', error)
