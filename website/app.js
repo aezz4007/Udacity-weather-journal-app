@@ -24,7 +24,12 @@ function performAction(e){
         //Call the first function to get the weather data
         getWeather(baseURL, newZip, apiKey)
         //call the second function to post and store the weather data
-        .then (postData ('/addData', postData))
+         .then( postData('/addData', 
+                    {
+                        date: newDate,
+                        temp: temp,
+                        feelings: feelings
+                    }))
         //call the third function to update user interface
         //TODO
         .then (updateUI ())
@@ -46,7 +51,6 @@ const getWeather = async (baseURL, newZip, apiKey) => {
 }
 //Post weather to project endpoint
 const postData = async ( url = '', data = {})=>{
-    console.log(data);
       const response = await fetch(url, {
       method: 'POST', 
       credentials: 'same-origin',
@@ -57,26 +61,26 @@ const postData = async ( url = '', data = {})=>{
     });
 
       try {
-        const newData = await response.json();
-        return newData;
-      }catch(error) {
+        const data = await response.json();
+        return data;
+      } catch(error) {
       console.log("error", error);
       }
   }
 
   //Update user interface function
-  const updateUI = async () => {
-    const request = await fetch('/getData');
-    try{
-      const allData = await request.json();
-      newZip = allData[0].newZip;
-      temp = allData[0].temp;
-       feelings = allData[0].feelings;
-       document.getElementById('date').innerHTML=`Date: ${newDate}`
-       document.getElementById('temp').innerHTML=`Temperature: ${temp}`
-       document.getElementById('content').innerHTML=`Feelings: ${feelings}`
-  
-    }catch(error){
-      console.log("error", error);
+  async function updateUI() {
+
+    const req = await fetch('/getData');
+
+    try {
+        const projectData = await req.json();
+
+        document.getElementById('date').innerHTML = `Date: ${projectData.date}`;
+        document.getElementById('temp').innerHTML = `Temperature: ${projectData.temp}`;
+        document.getElementById('content').innerHTML = `Feelings: ${projectData.feelings}`;
+        
+    } catch (error) {
+        console.log(`error: ${error}`);
     }
 }
