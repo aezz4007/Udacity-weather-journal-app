@@ -1,10 +1,64 @@
-# Weather-Journal App Project
+# Landing Page
 
-## Overview
-This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI. 
+This project is using a weather API to get today's temperature. The user enters the zip code, how they are currently feeling, and a message is displayed to them retrieving the current date, temperature, and how they are feeling.
 
-## Instructions
-This will require modifying the `server.js` file and the `website/app.js` file. You can see `index.html` for element references, and once you are finished with the project steps, you can use `style.css` to style your application to customized perfection.
+## Getting Started
 
-## Extras
-If you are interested in testing your code as you go, you can use `tests.js` as a template for writing and running some basic tests for your code.
+To use this projct, all you need to do is to type in your zip code, and how you are feeling today, then click on the generate button.
+
+### Prerequisites
+
+No prequisities to use this project.
+
+
+### Installing
+
+You only need to open the webpage (index.html), and type in your data.
+
+## Running the tests
+
+Just open your index.html file with your favorite browser. 
+
+### Break down into end to end tests
+
+If the page doesn't look as expected, please call your web developer for help. 
+
+To see if there's an error in your code, right click anywhere in the page and choose "inspect" or "inspect element" (based on the browser you are using). 
+
+Click on console tab. If you see any errors try to fix them, or call your web developer for help.
+
+
+### And coding style tests
+
+You can change the foramtting of any item on the page using the css/style.css file. In the example below, you can change the font color of all your section titles.
+
+```
+h2 {
+    color: green;
+}
+```
+
+## Deployment
+
+You are free to grab any other weather data from the API, by modifying the JavaScript code.
+
+## Built With
+
+* [Starter code from Udacity](https://github.com/udacity/fend/tree/refresh-2019/projects/weather-journal-app) - You can download it here.
+* [Git](https://git-scm.com/) - Used for version control
+* [Visual Studio Code](https://code.visualstudio.com/) - A code editor
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+## Author
+
+* **Amira Ezzeldin** 
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Special thanks to the [Udacity](https://www.udacity.com/) team for the very valuable course on front-end web development. Udacity has a very friendly environment, cooperative instructors and very rich study material.
