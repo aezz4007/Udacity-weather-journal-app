@@ -7,7 +7,7 @@ body{
     display: grid;
     grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
-    height:100vh;
+    height:auto;
     background: rgb(33, 1, 1);
     color: #fff;
     justify-content: center;
@@ -113,4 +113,13 @@ button:focus {
 
 #feelings {
     height: 30px;
+}
+
+#generate:hover {
+background-color: rgb(59, 2, 47);
+}
+
+#generate:active {
+    background-color: rgb(59, 2, 47);
+    box-shadow: 2px 4px 5px rgb(48, 7, 233);
 }

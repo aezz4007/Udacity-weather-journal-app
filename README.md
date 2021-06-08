@@ -58,6 +58,9 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Please note that this project can not be copied and pasted into your own project at Udacity. 
+Udacity have a very strict rule about plagiarism. So, please be careful not to fall into losing the opportunity to get your nano-degree certificate and the respect of Udacity team.
+You can read, processs and understand the code. You can't copy pieces of code that you don't understand and use it into your project. Good luck for all learners.
 
 ## Acknowledgments
 

@@ -4,7 +4,7 @@ let baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 //Add event listener to generate button
 document.getElementById('generate').addEventListener('click', performAction);
@@ -19,20 +19,25 @@ function performAction(e){
         alert('Please enter a valid zip code');
     } else if (newZip.length!=5) {
         alert('Please enter a five digit zip code');
+    } else if (!feelings) {
+        alert('Please enter how you are feeling');
     }
     else {
         //Call the first function to get the weather data
         getWeather(baseURL, newZip, apiKey)
         //call the second function to post and store the weather data
-         .then( postData('/addData', 
+        
+         .then((data)=> postData('http://localhost:8000/addData', 
                     {
                         date: newDate,
-                        temp: temp,
+                        temp: data.main.temp,
                         feelings: feelings
                     }))
         //call the third function to update user interface
         //TODO
-        .then (updateUI ())
+        .then (() =>{
+            updateUI ()
+        })
        }
     }
 
@@ -43,7 +48,6 @@ const getWeather = async (baseURL, newZip, apiKey) => {
     try {
       const weatherData = await res.json();
       const temp = weatherData.main.temp;
-      console.log(weatherData)
       return weatherData;
     } catch (error) {
       console.log('error', error)
@@ -69,16 +73,15 @@ const postData = async ( url = '', data = {})=>{
   }
 
   //Update user interface function
-  async function updateUI() {
+  const updateUI = async () => {
 
-    const req = await fetch('/getData');
+    const req = await fetch('http://localhost:8000/getData');
 
     try {
-        const projectData = await req.json();
-
-        document.getElementById('date').innerHTML = `Date: ${projectData.date}`;
-        document.getElementById('temp').innerHTML = `Temperature: ${projectData.temp}`;
-        document.getElementById('content').innerHTML = `Feelings: ${projectData.feelings}`;
+        const myData = await req.json();
+        document.getElementById('date').innerHTML = `Date: ${myData.date}`;
+        document.getElementById('temp').innerHTML = `Temperature: ${myData.temp}`;
+        document.getElementById('content').innerHTML = `Feelings: ${myData.feelings}`;
         
     } catch (error) {
         console.log(`error: ${error}`);

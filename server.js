@@ -17,7 +17,6 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('website'));
 
-
 // Setup Server
 const port = 8000;
 
@@ -33,7 +32,7 @@ app.get('/getData', function (req, res) {
   //post data server side code (create a new instance of the req.body content and assign it to projectData object)
   app.post('/addData', function (req, res) {
       projectData = {...req.body}
-      res.end()
+      res.send(projectData);
   })
 
   
