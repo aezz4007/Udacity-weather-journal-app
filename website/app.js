@@ -24,7 +24,7 @@ function performAction(e){
         //Call the first function to get the weather data
         getWeather(baseURL, newZip, apiKey)
         //call the second function to post and store the weather data
-        .then (postData ('/addData', newData))
+        .then (postData ('/addData', postData))
         //call the third function to update user interface
         //TODO
         .then (updateUI ())
@@ -65,4 +65,18 @@ const postData = async ( url = '', data = {})=>{
   }
 
   //Update user interface function
+  const updateUI = async () => {
+    const request = await fetch('/getData');
+    try{
+      const allData = await request.json();
+      newZip = allData[0].newZip;
+      temp = allData[0].temp;
+       feelings = allData[0].feelings;
+       document.getElementById('date').innerHTML=`Date: ${newDate}`
+       document.getElementById('temp').innerHTML=`Temperature: ${temp}`
+       document.getElementById('content').innerHTML=`Feelings: ${feelings}`
   
+    }catch(error){
+      console.log("error", error);
+    }
+}

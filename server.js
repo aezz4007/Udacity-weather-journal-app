@@ -35,3 +35,5 @@ app.get('/getData', function (req, res) {
       projectData = {...req.body}
       res.end()
   })
+
+  
