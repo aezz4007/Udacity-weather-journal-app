@@ -1,4 +1,4 @@
-# Landing Page
+# Weather journal app
 
 This project is using a weather API to get today's temperature. The user enters the zip code, how they are currently feeling, and a message is displayed to them retrieving the current date, temperature, and how they are feeling.
 
@@ -13,30 +13,18 @@ No prequisities to use this project.
 
 ### Installing
 
-You only need to open the webpage (index.html), and type in your data.
+First, create a free account at https://api.openweathermap.org,
+then you'll get an API Key.
+In the app.js file, you'll find an empty variable called API_KEY
+Save your API key in this variable, and then run the code following the instruction below.
 
-## Running the tests
+You can run the project by typing in your terminal:
 
-Just open your index.html file with your favorite browser. 
+npm install
 
-### Break down into end to end tests
+then to run it type:
 
-If the page doesn't look as expected, please call your web developer for help. 
-
-To see if there's an error in your code, right click anywhere in the page and choose "inspect" or "inspect element" (based on the browser you are using). 
-
-Click on console tab. If you see any errors try to fix them, or call your web developer for help.
-
-
-### And coding style tests
-
-You can change the foramtting of any item on the page using the css/style.css file. In the example below, you can change the font color of all your section titles.
-
-```
-h2 {
-    color: green;
-}
-```
+npm start
 
 ## Deployment
 
